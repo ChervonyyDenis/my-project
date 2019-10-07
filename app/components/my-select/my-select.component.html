@@ -1,0 +1,23 @@
+<div class="my-select_container">
+    <div class="my-select_field">
+        {{selectedOption.displayValue || placeholder}}
+    </div>
+
+    <div ng-show="ngModelController.$touched && ngModelController.$invalid">
+        <span class="error"
+              ng-if="ngModelController.$error.required">Field is required!</span>
+    </div>
+
+    <div class="my-select_options__wrapper"
+         ng-if="isDropdownOpened">
+            <span class="my-select_option__item"
+                  ng-class="{'selected_option': selectedOption === option}"
+                  ng-repeat="option in options"
+                  ng-click="onOptionChoose(option)"
+            >{{option.displayValue}}</span>
+    </div>
+
+    <button class="my-select_btn__clear"
+            ng-click="resetSelection()">X
+    </button>
+</div>

@@ -1,0 +1,84 @@
+/*my-select.component*/
+.my-select_container {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    margin: 30px 0;
+}
+.my-select_field {
+    line-height: 25px;
+    outline: none;
+    font-size: 20px;
+    font-family: sans-serif;
+    padding: 5px;
+    border: none;
+    width: calc(100% - 35px);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.error {
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 0;
+    color: #f5081e;
+}
+.my-select_btn__clear {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    position: absolute;
+    right: 0;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    width: 35px;
+    height: 100%;
+    cursor: pointer;
+    font-size: 20px;
+}
+.my-select_btn__clear:hover {
+    background-color: #00000017;
+}
+.my-select_btn__clear:disabled{
+    background-color: #ebebe4;
+}
+.my-select_options__wrapper {
+    position: absolute;
+    background-color: #fff;
+    overflow-y: scroll;
+    border: 1px solid black;
+    max-height: 220px;
+    width: 100%;
+    left: -1px;
+    top: 100%;
+    z-index: 2;
+}
+.my-select_option__item {
+    cursor: pointer;
+    display: block;
+    padding: 8px;
+    line-height: 20px;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.selected_option, .my-select_option__item:hover {
+    background-color: #9e9b9b40;
+}
+/*customize scrollbar*/
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    border-left: 1px solid black;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #7c7c7c;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #484848;
+}

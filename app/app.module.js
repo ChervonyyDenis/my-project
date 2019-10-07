@@ -1,1 +1,1 @@
-var appModule = angular.module('AppModule', []);
+angular.module('AppModule', ['MySelectModule']);

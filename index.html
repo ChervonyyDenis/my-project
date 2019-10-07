@@ -1,13 +1,33 @@
 <!DOCTYPE html>
-<html ng-app="AppModule">
+<html lang="en" ng-app="AppModule">
+<!--http://localhost:63342/my-project/index.html?_ijt=gl4cg2oolfiapbfr4hjs3ar0ch-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="assets/styles/main.css">
     <script src="node_modules/angular/angular.js"></script>
-</head>
-<body>
     <script src="app/app.module.js"></script>
+    <script src="app/components/my-select/my-select.module.js"></script>
+    <script src="app/root.controller.js"></script>
+    <script src="app/components/my-select/my-select.component.js"></script>
+</head>
+<body ng-controller="rootController">
+<form name="myCustomForm"
+      novalidate>
+    <my-select options="mockData"
+               placeholder="Country you live"
+               ng-model="user.bornCountry"
+               required></my-select>
+
+    <my-select options="mockData"
+               placeholder="Country you born"
+               ng-model="user.liveCountry"
+               required></my-select>
+
+    <button type="submit"
+            ng-disabled="myCustomForm.$invalid || myCustomForm.$pristine"
+            >Send</button>
+</form>
 </body>
 </html>
