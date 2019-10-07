@@ -1,0 +1,22 @@
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "my app",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.7.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChervonyyDenis/my-project.git"
+  },
+  "author": "Chervonyi\u001b[D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[DDen\u001b[2~is Chervonyi\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001bys",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChervonyyDenis/my-project/issues"
+  },
+  "homepage": "https://github.com/ChervonyyDenis/my-project#readme"
+}
