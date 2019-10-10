@@ -15,6 +15,16 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
+            './node_modules/angular/angular.js',
+            './node_modules/angular-ui-router/release/angular-ui-router.js',
+            './node_modules/angular-mocks/angular-mocks.js',
+
+            './app/app.module.js',
+
+            './app/components/my-select/my-select.module.js',
+            './app/components/my-select/my-select.component.spec.js',
+            './app/components/my-select/my-select.component.html',
+            './index.html'
         ],
 
 
@@ -26,13 +36,18 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
+            './app/*.html': ['ng-html2js']
         },
 
+        // Module for accessing templatesUrl
+        ngHtml2JsPreprocessor: {
+            moduleName: 'templates'
+        },
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['spec'],
 
 
         // web server port
