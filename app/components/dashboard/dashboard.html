@@ -1,0 +1,19 @@
+<div ng-controller="DashboardController as DashCtrl">
+    <form name="myCustomForm"
+          novalidate>
+        <my-select options="mockData"
+                   placeholder="Country you live"
+                   ng-model="user.bornCountry"
+                   required></my-select>
+
+        <my-select options="mockData"
+                   placeholder="Country you born"
+                   ng-model="user.liveCountry"
+                   required></my-select>
+
+        <button type="submit"
+                class="submit-btn"
+                ng-disabled="myCustomForm.$invalid || myCustomForm.$pristine"
+        >Send</button>
+    </form>
+</div>

@@ -1,12 +1,19 @@
+/* reset css*/
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 /*my-select.component*/
 .my-select_container {
     position: relative;
     width: 100%;
     box-sizing: border-box;
     border: 1px solid #000;
-    margin: 30px 0;
+    margin: 35px 0;
 }
 .my-select_field {
+    background-color: #fff;
     line-height: 25px;
     outline: none;
     font-size: 20px;
@@ -22,10 +29,12 @@
     top: calc(100% + 3px);
     left: 0;
     color: #f5081e;
+    margin: 5px 0;
+    font-size: 18px;
 }
 .my-select_btn__clear {
+    background-color: #fff;
     border: none;
-    background-color: transparent;
     outline: none;
     position: absolute;
     right: 0;
@@ -81,4 +90,91 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #484848;
+}
+/* layout */
+/* header */
+.header {
+    height: 75px;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px -5px black;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 11;
+}
+.header_nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.header_nav__item {
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-family: monospace, sans-serif;
+}
+.active-item, .header_nav__item:hover {
+    color: blue;
+    cursor: pointer;
+}
+/* sidebar */
+.sidebar {
+    box-sizing: border-box;
+    height: calc(100% - 75px);
+    width: 300px;
+    background-color: #ffffff;
+    box-shadow: 0 0px 8px -4px black;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+}
+/* content */
+.content {
+    box-sizing: border-box;
+    padding: 5px 15px;
+    position: fixed;
+    top: 75px;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - 300px);
+    height: calc(100% - 75px);
+    background-color: #F5F5F5;
+    z-index: 9;
+}
+/* dashboard */
+.submit-btn {
+    outline: none;
+    background: white;
+    border: 2px solid black;
+    padding: 5px 25px;
+    border-radius: 0;
+    font-size: 20px;
+    color: #000;
+    font-family: monospace;
+    cursor: pointer;
+    transition: border-radius 0.3s;
+}
+.submit-btn:hover:not(:disabled) {
+    transition: border-radius 0.3s;
+    border-radius: 20px;
+}
+.submit-btn:active {
+    background-color: #000;
+    color: #fff;
+}
+.submit-btn:disabled {
+    background-color: #cdcdcd;
+    color: #8a8888;
+    border-color: #cdcdcd;
+    cursor: not-allowed;
 }

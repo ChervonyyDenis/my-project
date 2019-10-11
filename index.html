@@ -7,27 +7,24 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/styles/main.css">
     <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <!--  Modules  -->
     <script src="app/app.module.js"></script>
+    <script src="app/components/layout/layout.module.js"></script>
     <script src="app/components/my-select/my-select.module.js"></script>
+    <script src="app/components/dashboard/dashboard.module.js"></script>
+    <script src="app/components/statistic/statistic.module.js"></script>
+    <!--  Other JS files  -->
+    <script src="app/components/layout/sidebar.controller.js"></script>
+    <script src="app/components/layout/header.controller.js"></script>
+    <script src="app/components/dashboard/dashboard.controller.js"></script>
+    <script src="app/components/statistic/statistic.controller.js"></script>
     <script src="app/root.controller.js"></script>
     <script src="app/components/my-select/my-select.component.js"></script>
 </head>
 <body ng-controller="rootController">
-<form name="myCustomForm"
-      novalidate>
-    <my-select options="mockData"
-               placeholder="Country you live"
-               ng-model="user.bornCountry"
-               required></my-select>
-
-    <my-select options="mockData"
-               placeholder="Country you born"
-               ng-model="user.liveCountry"
-               required></my-select>
-
-    <button type="submit"
-            ng-disabled="myCustomForm.$invalid || myCustomForm.$pristine"
-            >Send</button>
-</form>
+    <div ng-include="'./app/components/layout/header.html'"></div>
+    <div ng-include="'./app/components/layout/sidebar.html'"></div>
+    <div data-ng-view class="content"></div>
 </body>
 </html>
