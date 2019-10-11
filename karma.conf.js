@@ -19,10 +19,14 @@ module.exports = function (config) {
             './node_modules/angular-ui-router/release/angular-ui-router.js',
             './node_modules/angular-mocks/angular-mocks.js',
 
+            // modules.js filed
             './app/app.module.js',
-
             './app/components/my-select/my-select.module.js',
+
+            // spec.js files
             './app/components/my-select/my-select.component.spec.js',
+
+            // html files
             './app/components/my-select/my-select.component.html',
             './index.html'
         ],
@@ -36,7 +40,8 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            './app/*.html': ['ng-html2js']
+            './*.html': ['ng-html2js'],
+            './app/components/my-select/*.html': ['ng-html2js']
         },
 
         // Module for accessing templatesUrl
