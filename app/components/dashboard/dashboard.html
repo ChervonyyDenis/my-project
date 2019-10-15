@@ -1,18 +1,25 @@
 <div ng-controller="DashboardController as DashCtrl">
     <form name="myCustomForm"
+          class="country_form"
           novalidate>
-        <my-select options="mockData"
-                   placeholder="Country you live"
-                   ng-model="user.bornCountry"
-                   required></my-select>
-
-        <my-select options="mockData"
-                   placeholder="Country you born"
-                   ng-model="user.liveCountry"
-                   required></my-select>
+        <div>
+            <label>You live in:</label>
+            <my-select options="mockData"
+                       placeholder="Country you live"
+                       ng-model="user.bornCountry"
+                       required></my-select>
+        </div>
+        <div>
+            <label>You born in:</label>
+            <my-select options="mockData"
+                       placeholder="Country you born"
+                       ng-model="user.liveCountry"
+                       required></my-select>
+        </div>
 
         <button type="submit"
                 class="submit-btn"
+                ng-click="onSubmit()"
                 ng-disabled="myCustomForm.$invalid || myCustomForm.$pristine"
         >Send</button>
     </form>

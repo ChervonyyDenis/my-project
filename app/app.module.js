@@ -3,7 +3,8 @@ angular.module('AppModule', [
     'MySelectModule',
     'DashboardModule',
     'StatisticModule',
-    'LayoutModule'
+    'LayoutModule',
+    'ServicesModule'
 ]).config(function ($routeProvider) {
     $routeProvider.when('/', {
         controller: 'DashboardController',
