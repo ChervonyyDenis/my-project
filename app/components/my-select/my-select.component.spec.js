@@ -17,7 +17,7 @@ describe('MySelectDirective', function () {
     }));
 
     afterEach(function () {
-        // this.directiveElement.remove();
+        this.directiveElement.remove();
     });
 
     it('should set option', function () {

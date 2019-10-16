@@ -19,14 +19,15 @@ angular.module('MySelectModule')
                     $scope.ngModelController.$setViewValue($scope.selectedOption);
                 };
                 $scope.resetSelection = function () {
+                    $scope.isDropdownOpened = false;
                     $scope.selectedOption = null;
-                    $scope.ngModelController.$setTouched();
                     $scope.ngModelController.$setValidity('required', false);
                 };
             },
 
             link: function ($scope, $element, attr, ngModelController) {
                 var resetBtn = $element.find('button');
+
                 $scope.ngModelController = ngModelController;
                 ngModelController.$render = function () {
                     $scope.selectedOption = ngModelController.$viewValue;
@@ -40,6 +41,7 @@ angular.module('MySelectModule')
 
                 $scope.onDropdownOpen = function () {
                     $document.on('click', onDocumentClick);
+                    ngModelController.$setTouched();
                     $scope.$apply(function () {
                         $scope.isDropdownOpened = !$scope.isDropdownOpened;
                     });
@@ -49,7 +51,7 @@ angular.module('MySelectModule')
                 };
 
                 function onDocumentClick(e) {
-                    if ($element[0].contains(e.target) && !$scope.isDropdownOpened) {
+                    if (!$element[0].contains(e.target) && $scope.isDropdownOpened) {
                         $scope.$apply(function () {
                             $scope.isDropdownOpened = false;
                         });

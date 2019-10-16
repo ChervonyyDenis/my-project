@@ -1,4 +1,4 @@
 angular.module('AboutModule')
     .controller('AboutController', ['$scope', 'SharedService', function ($scope, shared) {
-        $scope.selectedOptions = shared.optionsArray;
+        $scope.selectedOptions = shared.getOptions();
     }]);
