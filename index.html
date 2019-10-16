@@ -8,26 +8,24 @@
     <link rel="stylesheet" href="assets/styles/main.css">
     <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/angular-route/angular-route.js"></script>
-    <!--  Modules  -->
+    <!--  modules  -->
     <script src="app/app.module.js"></script>
-    <script src="app/components/layout/layout.module.js"></script>
-    <script src="app/components/my-select/my-select.module.js"></script>
-    <script src="app/components/dashboard/dashboard.module.js"></script>
-    <script src="app/components/statistic/statistic.module.js"></script>
     <script src="app/services/services.module.js"></script>
+    <script src="app/components/my-select/my-select.module.js"></script>
+    <script src="app/components/layout/layout.module.js"></script>
+    <script src="app/components/dashboard/dashboard.module.js"></script>
+    <script src="app/components/about/about.module.js"></script>
     <!--  services  -->
     <script src="app/services/shared.service.js"></script>
-    <!--  Other JS files  -->
-    <script src="app/components/layout/sidebar.controller.js"></script>
-    <script src="app/components/layout/header.controller.js"></script>
-    <script src="app/components/dashboard/dashboard.controller.js"></script>
-    <script src="app/components/statistic/statistic.controller.js"></script>
+    <!-- js -->
     <script src="app/root.controller.js"></script>
+    <script src="app/components/layout/layout.controller.js"></script>
+    <script src="app/components/dashboard/dashboard.controller.js"></script>
     <script src="app/components/my-select/my-select.component.js"></script>
+    <script src="app/components/about/about.controller.js"></script>
 </head>
 <body ng-controller="rootController">
-    <div ng-include="'./app/components/layout/header.html'"></div>
-    <div ng-include="'./app/components/layout/sidebar.html'"></div>
+    <div ng-include="'app/components/layout/layout.html'"></div>
     <div data-ng-view class="content"></div>
 </body>
 </html>

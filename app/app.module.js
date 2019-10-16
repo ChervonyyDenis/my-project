@@ -1,18 +1,19 @@
 angular.module('AppModule', [
     'ngRoute',
     'MySelectModule',
-    'DashboardModule',
-    'StatisticModule',
     'LayoutModule',
+    'DashboardModule',
+    'AboutModule',
     'ServicesModule'
 ]).config(function ($routeProvider) {
-    $routeProvider.when('/', {
-        controller: 'DashboardController',
-        templateUrl: 'app/components/dashboard/dashboard.html'
-    })
-        .when('/statistic/:id', {
-            controller: 'StatisticController',
-            templateUrl: 'app/components/statistic/statistic.html'
+    $routeProvider
+        .when('/', {
+            templateUrl: 'app/components/dashboard/dashboard.html',
+            controller: 'DashboardController'
+        })
+        .when('/about', {
+            templateUrl: 'app/components/about/about.html',
+            controller: 'AboutController'
         })
         .otherwise({
             redirectTo: '/'

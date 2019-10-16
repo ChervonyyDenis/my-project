@@ -1,6 +1,6 @@
 angular.module('DashboardModule')
-    .controller('DashboardController', function ($scope, SharedService) {
-        $scope.welcome = 'This is a dashboard page';
+    .controller('DashboardController', ['$scope', 'SharedService', function ($scope, shared) {
+        $scope.selectedOption = null;
         $scope.mockData = [
             {displayValue: 'China', value: 1},
             {displayValue: 'USA', value: 2},
@@ -12,13 +12,9 @@ angular.module('DashboardModule')
             {displayValue: 'Estonia', value: 8},
             {displayValue: 'Israel', value: 9}
         ];
-        $scope.user = {
-            bornCountry: $scope.mockData[0],
-            liveCountry: ''
-        };
         $scope.onSubmit = function () {
             $scope.myCustomForm.$getControls().map(function (item) {
-                SharedService.setList(item.$viewValue);
+                return shared.setOptions(item.$viewValue);
             });
         };
-    });
+    }]);

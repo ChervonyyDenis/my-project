@@ -1,13 +1,14 @@
 angular.module('ServicesModule')
-    .factory('SharedService', function ($q) {
-        var selectedList = [];
+    .factory('SharedService', function () {
+        var shared = {};
 
-        return {
-            getList: function () {
-                return $q.when(selectedList);
-            },
-            setList: function (list) {
-                selectedList.push(list);
-            }
+        shared.optionsArray = [];
+        shared.getOptions = function () {
+            return shared.optionsArray;
         };
+        shared.setOptions = function (item) {
+            shared.optionsArray.push(item);
+        };
+
+        return shared;
     });
