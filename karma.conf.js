@@ -19,12 +19,16 @@ module.exports = function (config) {
             './node_modules/angular-ui-router/release/angular-ui-router.js',
             './node_modules/angular-mocks/angular-mocks.js',
 
+            // styles
+            './assets/styles/main.css',
+
             // modules.js filed
             './app/app.module.js',
             './app/components/my-select/my-select.module.js',
 
             // spec.js files
             './app/components/my-select/my-select.component.spec.js',
+            './app/components/my-select/my-select.component.js',
 
             // html files
             './app/components/my-select/my-select.component.html',
@@ -83,6 +87,12 @@ module.exports = function (config) {
 
         // Concurrency level
         // how many browser should be started simultaneous
-        concurrency: Infinity
+        concurrency: Infinity,
+        plugins: [
+            'karma-jasmine',
+            'karma-chrome-launcher',
+            'karma-ng-html2js-preprocessor',
+            'karma-spec-reporter'
+        ]
     });
 };

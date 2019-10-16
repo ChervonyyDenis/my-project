@@ -16,13 +16,11 @@ angular.module('MySelectModule')
 
                 $scope.onOptionChoose = function (option) {
                     $scope.selectedOption = option;
-                    $scope.ngModelController.$setTouched();
                     $scope.ngModelController.$setViewValue($scope.selectedOption);
                 };
 
                 $scope.resetSelection = function () {
                     $scope.selectedOption = null;
-                    $scope.isDropdownOpened = false;
                     $scope.ngModelController.$setTouched();
                     $scope.ngModelController.$setValidity('required', false);
                 };
@@ -32,20 +30,34 @@ angular.module('MySelectModule')
                 var resetBtn = $element.find('button');
 
                 $scope.ngModelController = ngModelController;
-
                 ngModelController.$render = function () {
                     $scope.selectedOption = ngModelController.$viewValue;
                 };
 
-                $document.on('click', function (e) {
-                    $scope.$apply(function () {
-                        $scope.isDropdownOpened = $element[0].contains(e.target) &&
-                            !$scope.isDropdownOpened && resetBtn[0] !== e.target;
-                        if (!ngModelController.$viewValue) {
-                            ngModelController.$setValidity('required', false);
-                        }
-                    });
+                $element.on('click', function (e) {
+                    if (e.target !== resetBtn[0]) {
+                        $scope.onDropdownOpen();
+                    }
                 });
+
+                $scope.onDropdownOpen = function () {
+                    $document.on('click', onDocumentClick);
+                    $scope.$apply(function () {
+                        $scope.isDropdownOpened = !$scope.isDropdownOpened;
+                    });
+                    if (!ngModelController.$viewValue && ngModelController.$touched) {
+                        ngModelController.$setValidity('required', false);
+                    }
+                };
+
+                function onDocumentClick(e) {
+                    if ($element[0].contains(e.target) && !$scope.isDropdownOpened) {
+                        $scope.$apply(function () {
+                            $scope.isDropdownOpened = false;
+                        });
+                        $document.off('click', onDocumentClick);
+                    }
+                }
             }
         };
     });
