@@ -12,7 +12,7 @@
          ng-if="isDropdownOpened">
             <span class="my-select_option__item"
                   ng-class="{'selected_option': selectedOption === option}"
-                  ng-repeat="option in options"
+                  ng-repeat="option in options track by $index"
                   ng-click="onOptionChoose(option)"
             >{{option.displayValue}}</span>
     </div>

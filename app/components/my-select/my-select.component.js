@@ -18,7 +18,6 @@ angular.module('MySelectModule')
                     $scope.selectedOption = option;
                     $scope.ngModelController.$setViewValue($scope.selectedOption);
                 };
-
                 $scope.resetSelection = function () {
                     $scope.selectedOption = null;
                     $scope.ngModelController.$setTouched();
@@ -28,7 +27,6 @@ angular.module('MySelectModule')
 
             link: function ($scope, $element, attr, ngModelController) {
                 var resetBtn = $element.find('button');
-
                 $scope.ngModelController = ngModelController;
                 ngModelController.$render = function () {
                     $scope.selectedOption = ngModelController.$viewValue;

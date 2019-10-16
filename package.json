@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "my app",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "angular-route": "^1.7.8"
+  },
   "devDependencies": {
     "angular": "^1.7.8",
     "angular-mocks": "^1.7.8",

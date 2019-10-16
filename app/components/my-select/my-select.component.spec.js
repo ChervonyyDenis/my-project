@@ -9,7 +9,7 @@ describe('MySelectDirective', function () {
             {displayValue: 'Russia', value: 2},
             {displayValue: 'England', value: 3}
         ];
-        $rootScope.selectedOption = null;
+        $rootScope.selectedOption = {displayValue: 'England', value: 3};
         this.directiveElement = $compile('<my-select placeholder="placeholder" ng-model="selectedOption" options="options"></my-select>')($rootScope);
         this.$document.find('body')
             .append(this.directiveElement);
@@ -17,22 +17,40 @@ describe('MySelectDirective', function () {
     }));
 
     afterEach(function () {
-        //this.directiveElement.remove();
+        // this.directiveElement.remove();
     });
 
     it('should set option', function () {
         expect(this.$rootScope.selectedOption)
-            .toBe(null);
+            .toEqual({displayValue: 'England', value: 3});
     });
 
-    fit('should display list of options while click by select', function () {
+    it('should display list of options while click by select', function () {
         expect(this.directiveElement[0].querySelector('.my-select_options__wrapper'))
             .toBeNull();
 
         this.directiveElement.triggerHandler('click');
 
-        expect(this.directiveElement[0].querySelector('.my-select_options__wrapper'))
-            .not
-            .toBeNull();
+        expect(
+            this.directiveElement[0].querySelector('.my-select_options__wrapper')
+                .children
+                .length)
+            .toBeGreaterThan(0);
     });
+
+    it('should error "required" showed while click button', function () {
+        this.directiveElement.find('button').triggerHandler('click');
+
+        expect(this.directiveElement.find('span').html()).toEqual('Field is required!');
+    });
+
+    it('should have a three select options', function () {
+        this.directiveElement.triggerHandler('click');
+
+        expect(this.directiveElement[0].querySelector('.my-select_options__wrapper')
+            .children
+            .length).toEqual(this.$rootScope.options.length);
+    });
+
+
 });
