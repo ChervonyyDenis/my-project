@@ -20,37 +20,41 @@ describe('MySelectDirective', function () {
         this.directiveElement.remove();
     });
 
-    it('should set option', function () {
-        expect(this.$rootScope.selectedOption)
-            .toEqual({displayValue: 'England', value: 3});
+    it('should show initial selected option', function () {
+        expect(this.directiveElement.find('.my-select_field')
+            .html())
+            .toEqual(this.$rootScope.selectedOption.displayValue);
     });
 
     it('should display list of options while click by select', function () {
-        expect(this.directiveElement[0].querySelector('.my-select_options__wrapper'))
-            .toBeNull();
+        expect(this.directiveElement.find('.my-select_options__list'))
+            .not
+            .toBeInDOM();
 
         this.directiveElement.triggerHandler('click');
 
-        expect(
-            this.directiveElement[0].querySelector('.my-select_options__wrapper')
-                .children
-                .length)
-            .toBeGreaterThan(0);
-    });
+        expect(this.directiveElement.find('.my-select_options__list'))
+            .toBeInDOM();
 
-    it('should error "required" showed while click button', function () {
-        this.directiveElement.find('button').triggerHandler('click');
-
-        expect(this.directiveElement.find('span').html()).toEqual('Field is required!');
-    });
-
-    it('should have a three select options', function () {
-        this.directiveElement.triggerHandler('click');
-
-        expect(this.directiveElement[0].querySelector('.my-select_options__wrapper')
+        expect(this.directiveElement.find('.my-select_options__list')[0]
             .children
-            .length).toEqual(this.$rootScope.options.length);
+            .length)
+            .toEqual(this.$rootScope.options.length);
     });
 
+    it('should show required validation message if field is blank and dirty', function () {
+        this.directiveElement.find('button')
+            .triggerHandler('click');
 
+        expect(this.directiveElement.find('.error'))
+            .toBeInDOM();
+    });
+
+    it('should close dropdown while click outside', function () {
+        this.directiveElement.triggerHandler('click');
+        this.$document.triggerHandler('click');
+        expect(this.directiveElement.find('.my-select_options__list'))
+            .not
+            .toBeInDOM();
+    });
 });

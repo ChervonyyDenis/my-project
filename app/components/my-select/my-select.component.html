@@ -1,14 +1,12 @@
 <div class="my-select_container">
-    <div class="my-select_field">
-        {{selectedOption.displayValue || placeholder}}
-    </div>
+    <div class="my-select_field">{{selectedOption.displayValue || placeholder}}</div>
 
     <div ng-show="ngModelController.$touched && ngModelController.$invalid">
         <span class="error"
               ng-if="ngModelController.$error.required">Field is required!</span>
     </div>
 
-    <div class="my-select_options__wrapper"
+    <div class="my-select_options__list"
          ng-if="isDropdownOpened">
             <span class="my-select_option__item"
                   ng-class="{'selected_option': selectedOption === option}"

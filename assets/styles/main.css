@@ -48,7 +48,7 @@ html, body {
 .my-select_btn__clear:disabled{
     background-color: #ebebe4;
 }
-.my-select_options__wrapper {
+.my-select_options__list {
     position: absolute;
     background-color: #fff;
     overflow-y: scroll;
