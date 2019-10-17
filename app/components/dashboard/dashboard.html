@@ -2,12 +2,12 @@
     <form name="myCustomForm"
           novalidate>
         <my-select options="mockData"
-                   ng-model="mockData[0]"
+                   ng-model="selectedOptions.first"
                    placeholder="Country you live"
                    required></my-select>
 
         <my-select options="mockData"
-                   ng-model="selectedOption"
+                   ng-model="selectedOptions.second"
                    placeholder="Country you born"
                    required></my-select>
 

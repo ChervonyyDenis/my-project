@@ -18,6 +18,7 @@ angular.module('MySelectModule')
                     $scope.selectedOption = option;
                     $scope.ngModelController.$setViewValue($scope.selectedOption);
                 };
+
                 $scope.resetSelection = function () {
                     $scope.isDropdownOpened = false;
                     $scope.selectedOption = null;

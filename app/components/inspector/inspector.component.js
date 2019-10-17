@@ -3,6 +3,9 @@ angular.module('InspectorModule')
         return {
             restrict: 'E',
             templateUrl: 'app/components/inspector/inspector.html',
+            scope: {
+                config: '='
+            },
             controller: function ($scope) {
                 $scope.welcome = 'Welcome';
             },

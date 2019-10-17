@@ -1,4 +1,6 @@
 angular.module('AppModule')
-    .controller('rootController', function ($scope) {
-
-    });
+    .controller('rootController', ['$scope', 'SharedService', function ($scope, shared) {
+        $scope.$watch(function () {
+            $scope.configuration = shared.getElementConfiguration();
+        });
+    }]);

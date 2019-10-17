@@ -1,6 +1,5 @@
 angular.module('DashboardModule')
     .controller('DashboardController', ['$scope', 'SharedService', function ($scope, shared) {
-        $scope.selectedOption = null;
         $scope.mockData = [
             {displayValue: 'China', value: 1},
             {displayValue: 'USA', value: 2},
@@ -12,6 +11,11 @@ angular.module('DashboardModule')
             {displayValue: 'Estonia', value: 8},
             {displayValue: 'Israel', value: 9}
         ];
+        $scope.selectedOptions = {
+            first: null,
+            second: $scope.mockData[0]
+        };
+
         $scope.onSubmit = function () {
             $scope.myCustomForm.$getControls().map(function (item) {
                 return shared.setOptions(item.$viewValue);

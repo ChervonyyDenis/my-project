@@ -116,8 +116,8 @@ html, body {
     align-items: center;
     cursor: pointer;
 }
-.header .nav .nav_item:hover,
-.active_item {
+.active_item,
+.header .nav .nav_item:hover {
     color: #4848f8;;
 }
 .sidebar {
@@ -129,7 +129,7 @@ html, body {
     top: 75px;
     box-sizing: border-box;
     bottom: 0;
-    z-index: 2;
+    z-index: 1;
 }
 .sidebar .selected_list {
     max-height: 100%;
@@ -157,25 +157,26 @@ html, body {
     top: 75px;
     right: 400px;
     bottom: 0;
+    overflow-y: auto;
 }
 /* About */
 .block-wrapper {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .block-wrapper .block-item {
     display: block;
-    width: 300px;
+    width: 370px;
     text-align: center;
     background-color: #fedc54;
     border: 1px solid black;
     margin: 5px;
-    height: 25px;
-    line-height: 25px;
+    height: 30px;
+    line-height: 30px;
 }
 /*  inspector  */
 .inspector {
-    color: cornsilk;
     position: absolute;
     right: 0;
     top: 75px;
@@ -183,8 +184,29 @@ html, body {
     padding: 10px 15px;
     width: 400px;
     height: calc(100% - 75px);
-    background-color: cornsilk;
     z-index: 1;
-    box-shadow: 0px 4px 6px 0px #00000063;
+    box-shadow: 0 5px 6px 1px #00000063;
     box-sizing: border-box;
+}
+.inspector .configuration_list {
+    padding: 10px;
+}
+.inspector .configuration_list .field_container {
+    width: 100%;
+    box-sizing: border-box;
+}
+.inspector .configuration_list .field_container .filed_label {
+    text-transform: capitalize;
+    font-family: monospace, sans-serif;
+    font-size: 16px;
+}
+.inspector .configuration_list .field_container .filed_label .field {
+    width: 100%;
+    line-height: 18px;
+    font-size: 16px;
+    font-family: monospace;
+    outline: none;
+}
+.inspector .configuration_list .field_container .filed_label .field:disabled {
+    cursor: not-allowed;
 }

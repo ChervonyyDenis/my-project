@@ -1,6 +1,7 @@
 angular.module('ServicesModule')
     .factory('SharedService', function () {
-        var optionsArray = [];
+        var optionsArray = [],
+            elementConfiguration = [];
 
         return {
             getOptions: function () {
@@ -8,6 +9,12 @@ angular.module('ServicesModule')
             },
             setOptions: function (item) {
                 optionsArray.push(item);
+            },
+            getElementConfiguration: function () {
+                return elementConfiguration;
+            },
+            saveElementConfiguration: function (config) {
+                elementConfiguration = config;
             }
         };
     });

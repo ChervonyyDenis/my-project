@@ -1,3 +1,34 @@
 <div class="inspector">
-    {{welcome}}
+    <div ng-repeat="field in config track by $index"
+         ng-switch="field.fieldType"
+         class="configuration_list">
+
+        <div ng-switch-when="input"
+             class="field_container">
+
+            <label class="filed_label">{{field.label}}
+
+            <input class="field"
+                   data-ng-name="{{'field' + ($index + 1)}}"
+                   type="{{field.fieldDataType}}"
+                   ng-required="field.required"
+                   ng-disabled="field.disabled">
+
+            </label>
+        </div>
+
+        <div ng-switch-when="select"
+             class="field_container">
+
+            <label class="filed_label">{{field.label}}
+
+                <select class="field"
+                        ng-required="field.required"
+                        ng-disabled="field.disabled">
+                    <option>Default</option>
+                </select>
+
+            </label>
+        </div>
+    </div>
 </div>
