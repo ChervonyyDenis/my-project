@@ -12,20 +12,25 @@
     <script src="app/app.module.js"></script>
     <script src="app/services/services.module.js"></script>
     <script src="app/components/my-select/my-select.module.js"></script>
+    <script src="app/components/inspector/inspector.module.js"></script>
     <script src="app/components/layout/layout.module.js"></script>
     <script src="app/components/dashboard/dashboard.module.js"></script>
     <script src="app/components/about/about.module.js"></script>
+    <script src="app/components/presentation/presentation.module.js"></script>
     <!--  services  -->
     <script src="app/services/shared.service.js"></script>
     <!-- js -->
     <script src="app/root.controller.js"></script>
     <script src="app/components/layout/layout.controller.js"></script>
+    <script src="app/components/inspector/inspector.component.js"></script>
     <script src="app/components/dashboard/dashboard.controller.js"></script>
     <script src="app/components/my-select/my-select.component.js"></script>
     <script src="app/components/about/about.controller.js"></script>
+    <script src="app/components/presentation/presentation.controller.js"></script>
 </head>
 <body ng-controller="rootController">
     <div ng-include="'app/components/layout/layout.html'"></div>
+    <inspector></inspector>
     <div data-ng-view class="content"></div>
 </body>
 </html>

@@ -3,7 +3,8 @@ angular.module('LayoutModule')
         $scope.selectedOptions = shared.getOptions();
         $scope.navigationItems = [
             {displayValue: 'Dashboard', route: '/', isChosen: false},
-            {displayValue: 'About', route: '/about', isChosen: false}
+            {displayValue: 'About', route: '/about', isChosen: false},
+            {displayValue: 'Presentation', route: '/presentation', isChosen: false}
         ];
 
         $scope.navigationItems

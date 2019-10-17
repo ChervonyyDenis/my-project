@@ -121,11 +121,11 @@ html, body {
     color: #4848f8;;
 }
 .sidebar {
-    width: 300px;
+    width: 100px;
     height: calc(100% - 75px);
     position: absolute;
     left: 0;
-    box-shadow: 0px 5px 6px 1px #00000063;
+    box-shadow: 0 5px 6px 1px #00000063;
     top: 75px;
     box-sizing: border-box;
     bottom: 0;
@@ -149,12 +149,14 @@ html, body {
 .content {
     background-color: #efebeb;
     height: calc(100% - 75px);
-    width: calc(100% - 300px);
+    width: calc(100% - 500px);
     position: absolute;
-    right: 0;
     box-sizing: border-box;
-    bottom: 0;
     padding: 10px;
+    left: 100px;
+    top: 75px;
+    right: 400px;
+    bottom: 0;
 }
 /* About */
 .block-wrapper {
@@ -170,4 +172,19 @@ html, body {
     margin: 5px;
     height: 25px;
     line-height: 25px;
+}
+/*  inspector  */
+.inspector {
+    color: cornsilk;
+    position: absolute;
+    right: 0;
+    top: 75px;
+    bottom: 0;
+    padding: 10px 15px;
+    width: 400px;
+    height: calc(100% - 75px);
+    background-color: cornsilk;
+    z-index: 1;
+    box-shadow: 0px 4px 6px 0px #00000063;
+    box-sizing: border-box;
 }

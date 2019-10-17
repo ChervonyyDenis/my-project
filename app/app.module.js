@@ -4,7 +4,9 @@ angular.module('AppModule', [
     'LayoutModule',
     'DashboardModule',
     'AboutModule',
-    'ServicesModule'
+    'ServicesModule',
+    'InspectorModule',
+    'PresentationModule'
 ]).config(function ($routeProvider) {
     $routeProvider
         .when('/', {
@@ -14,6 +16,10 @@ angular.module('AppModule', [
         .when('/about', {
             templateUrl: 'app/components/about/about.html',
             controller: 'AboutController'
+        })
+        .when('/presentation', {
+            templateUrl: 'app/components/presentation/presentation.html',
+            controller: 'PresentationController'
         })
         .otherwise({
             redirectTo: '/'
