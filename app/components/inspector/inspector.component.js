@@ -1,16 +1,21 @@
 angular.module('InspectorModule')
-    .directive('inspector', function () {
+    .directive('inspector', ['SharedService', function (shared) {
         return {
             restrict: 'E',
+            require: 'ngModel',
             templateUrl: 'app/components/inspector/inspector.html',
-            scope: {
-                config: '='
-            },
+            scope: {},
             controller: function ($scope) {
-                $scope.welcome = 'Welcome';
+                $scope.saveConfiguration = function () {
+                    shared.saveToLocalStorage($scope.configuration);
+                    $scope.configuration = [];
+                    console.log('save', shared.getFromLocalStorage());
+                };
             },
-            link: function ($scope, $element, $attrs) {
-                $scope.welcome = 'HEre';
+            link: function ($scope, $element, $attrs, ngModelCtrl) {
+                ngModelCtrl.$render = function () {
+                    $scope.configuration = ngModelCtrl.$viewValue;
+                };
             }
         };
-    });
+    }]);

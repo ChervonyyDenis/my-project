@@ -5,6 +5,7 @@ angular.module('PresentationModule')
                 fieldType: 'input',
                 fieldDataType: 'text',
                 label: 'header',
+                value: '',
                 required: false,
                 disabled: false
             },
@@ -12,6 +13,7 @@ angular.module('PresentationModule')
                 fieldType: 'input',
                 fieldDataType: 'number',
                 label: 'width',
+                value: 0,
                 required: true,
                 disabled: false
             },
@@ -19,6 +21,7 @@ angular.module('PresentationModule')
                 fieldType: 'input',
                 fieldDataType: 'number',
                 label: 'height',
+                value: 0,
                 required: true,
                 disabled: false
             },
@@ -26,11 +29,34 @@ angular.module('PresentationModule')
                 fieldType: 'select',
                 fieldDataType: null,
                 label: 'Select',
+                options: [
+                    {displayValue: 'One', value: 1},
+                    {displayValue: 'Two', value: 2},
+                    {displayValue: 'Three', value: 3}
+                ],
+                selectedOption: null,
                 required: false,
                 disabled: false
             }
         ];
-        $scope.pushElementConfiguration = function () {
-            shared.saveElementConfiguration($scope.elementConfiguration);
+        $scope.elementModel = {
+            inspectorConfiguration: {
+                name: {
+                    type: 'inspector-text-field',
+                    label: 'Name',
+                    required: true,
+                    index: 1
+                },
+                description: {
+                    type: 'inspector-text-field',
+                    label: 'Description',
+                    index: 2
+                }
+            }
         };
+        $scope.pushElementConfiguration = function () {
+            shared.saveToLocalStorage($scope.elementConfiguration);
+        };
+        //inspector-text
+        //inspector-number-field
     }]);
