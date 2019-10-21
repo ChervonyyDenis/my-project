@@ -6,7 +6,7 @@ angular.module('AppModule', [
     'AboutModule',
     'ServicesModule',
     'InspectorModule',
-    'PresentationModule'
+    'PresentationModule',
 ]).config(function ($routeProvider) {
     $routeProvider
         .when('/', {

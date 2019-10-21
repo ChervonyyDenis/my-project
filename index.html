@@ -23,6 +23,9 @@
     <script src="app/root.controller.js"></script>
     <script src="app/components/layout/layout.controller.js"></script>
     <script src="app/components/inspector/inspector.component.js"></script>
+    <script src="app/components/inspector/inspector-field.directive.js"></script>
+    <script src="app/components/inspector/components/text/inspector-text-field.directive.js"></script>
+    <script src="app/components/inspector/components/number/inspector-number-field.directive.js"></script>
     <script src="app/components/dashboard/dashboard.controller.js"></script>
     <script src="app/components/my-select/my-select.component.js"></script>
     <script src="app/components/about/about.controller.js"></script>
@@ -30,7 +33,10 @@
 </head>
 <body ng-controller="rootController">
     <div ng-include="'app/components/layout/layout.html'"></div>
-    <inspector ng-model="configuration"></inspector>
-    <div data-ng-view class="content"></div>
+    <inspector element-model="inspectorConfiguration"></inspector>
+    <!--    <div data-ng-view class="content"></div>-->
+    <div style="position: absolute;top: 100px;left: 120px;">
+        <button ng-click="setInspectorConfiguration()">Click to get configuration</button>
+    </div>
 </body>
 </html>

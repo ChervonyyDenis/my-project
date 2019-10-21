@@ -188,25 +188,24 @@ html, body {
     box-shadow: 0 5px 6px 1px #00000063;
     box-sizing: border-box;
 }
-.inspector .configuration_list {
-    padding: 10px;
+.inspector .inspector_field {
+    margin: 20px 0;
+    display: block;
 }
-.inspector .configuration_list .field_container {
+.inspector .inspector_field .field_container {
     width: 100%;
     box-sizing: border-box;
 }
-.inspector .configuration_list .field_container .filed_label {
+.inspector .inspector_field .field_container .filed_label {
     text-transform: capitalize;
     font-family: monospace, sans-serif;
     font-size: 16px;
 }
-.inspector .configuration_list .field_container .filed_label .field {
+
+.inspector .inspector_field  .field_container .filed_label .field {
     width: 100%;
     line-height: 18px;
     font-size: 16px;
     font-family: monospace;
     outline: none;
-}
-.inspector .configuration_list .field_container .filed_label .field:disabled {
-    cursor: not-allowed;
 }

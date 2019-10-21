@@ -1,36 +1,5 @@
 <div class="inspector">
-    <div ng-repeat="field in configuration"
-        <!-- configuration -> elementModel -->
-         ng-switch="field.fieldType"
-         class="configuration_list">
-
-        <inspector-field></inspector-field>
-<!--        <div ng-switch-when="input"-->
-<!--             class="field_container">-->
-<!--            <label class="filed_label">{{field.label}}-->
-<!--                <input class="field"-->
-<!--                       type="{{field.fieldDataType}}"-->
-<!--                       ng-required="field.required"-->
-<!--                       ng-model="field.value"-->
-<!--                       ng-disabled="field.disabled">-->
-<!--            </label>-->
-<!--        </div>-->
-
-<!--        <div ng-switch-when="select"-->
-<!--             class="field_container">-->
-<!--            <label class="filed_label">{{field.label}}-->
-<!--                <select class="field"-->
-<!--                        ng-required="field.required"-->
-<!--                        ng-disabled="field.disabled"-->
-<!--                        ng-options="option.value as option.displayValue-->
-<!--                                    for option in field.options"-->
-<!--                        ng-model="field.selectedOption">-->
-<!--                    <option value="">Choose...</option>-->
-<!--                    <option>{{option.displayValue}}</option>-->
-<!--                </select>-->
-<!--            </label>-->
-<!--        </div>-->
-    </div>
-    <button style="position: absolute;bottom: 35px;"
-            ng-click="saveConfiguration()">Save</button>
+        <inspector-field ng-repeat="(property, config) in elementModel.inspectorConfiguration"
+                         class="inspector_field">
+        </inspector-field>
 </div>
