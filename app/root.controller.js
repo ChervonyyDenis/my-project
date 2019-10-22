@@ -6,15 +6,16 @@ angular.module('AppModule')
                     name: {
                         type: 'inspector-text-field',
                         required: true,
-                        index: 1,
+                        index: 3
                     },
                     description: {
-                        type: 'inspector-text-field',
+                        type: 'inspector-number-field',
                         index: 2
                     }
                 },
-                data: {
-                    name: ''
+                configData: {
+                    name: '123',
+                    description: 2
                 }
             };
         };

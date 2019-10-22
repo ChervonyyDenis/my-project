@@ -2,7 +2,7 @@ angular.module('MySelectModule')
     .directive('mySelect', function ($document) {
         return {
             restrict: 'E',
-            templateUrl: 'app/components/my-select/my-select.component.html',
+            templateUrl: 'app/components/my-select/my-select.html',
 
             scope: {
                 options: '=',

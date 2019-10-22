@@ -29,11 +29,11 @@ module.exports = function (config) {
             './app/components/my-select/my-select.module.js',
 
             // spec.js files
-            './app/components/my-select/my-select.component.spec.js',
-            './app/components/my-select/my-select.component.js',
+            'app/components/my-select/my-select.directive.spec.js',
+            'app/components/my-select/my-select.directive.js',
 
             // html files
-            './app/components/my-select/my-select.component.html',
+            'app/components/my-select/my-select.html',
             './index.html'
         ],
 

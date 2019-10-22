@@ -10,6 +10,3 @@ angular.module('InspectorModule')
             }
         };
     });
-// event for change input field
-// and handler in inspector for check if the event is presented
-// write to data in inspectorConfig
