@@ -1,0 +1,8 @@
+<div class="palette">
+    <ul class="items_list">
+        <li ng-repeat="propertyName in items"
+            class="item"
+            ng-click="onItemSelect({selectedProperty: propertyName})">
+            {{propertyName}}</li>
+    </ul>
+</div>

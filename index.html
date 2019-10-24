@@ -10,33 +10,28 @@
     <script src="node_modules/angular-route/angular-route.js"></script>
     <!--  modules  -->
     <script src="app/app.module.js"></script>
-    <script src="app/services/services.module.js"></script>
     <script src="app/components/my-select/my-select.module.js"></script>
     <script src="app/components/inspector/inspector.module.js"></script>
     <script src="app/components/layout/layout.module.js"></script>
-    <script src="app/components/dashboard/dashboard.module.js"></script>
-    <script src="app/components/about/about.module.js"></script>
-    <script src="app/components/presentation/presentation.module.js"></script>
+    <script src="app/components/designer/designer.module.js"></script>
+    <script src="app/view-components/view-components.module.js"></script>
     <!--  services  -->
-    <script src="app/services/shared.service.js"></script>
+    <script src="app/view-components/view-component.service.js"></script>
+    <script src="app/view-components/base-view-component.service.js"></script>
     <!-- js -->
     <script src="app/root.controller.js"></script>
-    <script src="app/components/layout/layout.controller.js"></script>
+    <script src="app/components/layout/layout.directive.js"></script>
     <script src="app/components/inspector/inspector.directive.js"></script>
     <script src="app/components/inspector/inspector-field.directive.js"></script>
     <script src="app/components/inspector/components/text/inspector-text-field.directive.js"></script>
     <script src="app/components/inspector/components/number/inspector-number-field.directive.js"></script>
-    <script src="app/components/dashboard/dashboard.controller.js"></script>
     <script src="app/components/my-select/my-select.directive.js"></script>
-    <script src="app/components/about/about.controller.js"></script>
-    <script src="app/components/presentation/presentation.controller.js"></script>
+    <script src="app/components/designer/designer.directive.js"></script>
+    <script src="app/components/canvas/canvas.directive.js"></script>
+    <script src="app/components/palette/palette.directive.js"></script>
 </head>
-<body ng-controller="rootController">
-    <div ng-include="'app/components/layout/layout.html'"></div>
-    <inspector element-model="inspectorConfiguration"></inspector>
-    <!--    <div data-ng-view class="content"></div>-->
-    <div style="position: absolute;top: 100px;left: 120px;">
-        <button ng-click="setInspectorConfiguration()">Click to get configuration</button>
-    </div>
+<body>
+    <layout></layout>
+    <designer></designer>
 </body>
 </html>

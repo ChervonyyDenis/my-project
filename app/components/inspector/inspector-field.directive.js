@@ -4,8 +4,19 @@ angular.module('InspectorModule')
             restrict: 'E',
             scope: true,
             link: function ($scope, $element, attrs) {
-                $scope.compiledField = $compile('<' + $scope.config.type + '></' + $scope.config.type + '>')($scope);
-                $scope.compiledField.addClass('field_container');
+                $scope.value = $scope.elementModel.data[$scope.propertyConfig.propertyName];
+
+                $scope.onValueChange = function (value) {
+                    $scope.updateModelValueByPropertyName($scope.propertyConfig.propertyName, value);
+                };
+
+                $scope.compiledField = $compile(
+                    '<' + $scope.propertyConfig.configuration.type +
+                    ' configuration="inspectorConfig"' +
+                    ' value="value"' +
+                    ' on-value-change="onValueChange(value)"' +
+                    '></' + $scope.propertyConfig.configuration.type + '>')($scope);
+
                 $element.append($scope.compiledField);
             }
         };

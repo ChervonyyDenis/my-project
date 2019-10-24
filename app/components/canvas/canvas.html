@@ -1,0 +1,10 @@
+<div class="canvas">
+    <div>
+        <div class="canvas_item"
+             ng-repeat="item in items track by $index"
+             ng-class="{'selected_item' : selectedItemIndex === $index}"
+             ng-dblclick="onClickItem({propertyName: item.propertyName, itemIndex: $index, itemValue: item.value})">
+            {{item.propertyName}}
+        </div>
+    </div>
+</div>

@@ -1,24 +1,30 @@
 angular.module('InspectorModule')
-    .directive('inspector', function () {
+    .directive('inspector', function ($timeout) {
         return {
             restrict: 'E',
+            replace: true,
             templateUrl: 'app/components/inspector/inspector.html',
             scope: {
                 elementModel: '='
             },
             controller: function ($scope) {
-                $scope.$on('InspectorValueChange', function (event, data) {
-                    $scope.elementModel.configData[data.fieldName] = data.value;
-                    console.log('$scope.elementModel', $scope.elementModel);
-                });
+                $scope.updateModelValueByPropertyName = function (propertyName, value) {
+                    $scope.elementModel.data[propertyName] = value;
+                };
 
-            },
-            link: function ($scope, $element, $attrs) {
                 $scope.$watch('elementModel', function (newVal) {
                     if (newVal) {
-                        $scope.$broadcast('fieldsValueEvent', $scope.elementModel.configData);
+                        $scope.inspectorConfiguration = Object.keys(newVal.inspectorConfiguration)
+                            .map(function (propertyName) {
+                                return {
+                                    propertyName: propertyName,
+                                    configuration: newVal.inspectorConfiguration[propertyName]
+                                };
+                            });
                     }
                 });
+            },
+            link: function ($scope, $element, $attrs) {
             }
         };
     });

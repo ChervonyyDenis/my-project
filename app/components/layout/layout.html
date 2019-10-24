@@ -1,16 +1,8 @@
-<div ng-controller="LayoutController">
-    <div class="header">
-        <ul class="nav">
-            <li class="nav_item"
-                ng-repeat="item in navigationItems track by $index"
-                ng-click="onChooseItem(item)"
-                ng-class="{'active_item': item.isChosen}">{{item.displayValue}}</li>
-        </ul>
-    </div>
-    <div class="sidebar">
-        <ul class="selected_list">
-            <li ng-repeat="item in selectedOptions track by $index"
-                class="selected_item">{{item.displayValue}}</li>
-        </ul>
-    </div>
+<div class="header">
+    <ul class="nav">
+        <li class="nav_item"
+            ng-repeat="item in navigationItems track by $index"
+            ng-click="onChooseItem(item)"
+            ng-class="{'active_item': item.isChosen}">{{item.displayValue}}</li>
+    </ul>
 </div>
