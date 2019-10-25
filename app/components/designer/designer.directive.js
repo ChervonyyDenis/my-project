@@ -1,60 +1,19 @@
 angular.module('DesignerModule')
-    .directive('designer', function () {
+    .directive('designer', function (viewComponentProvider) {
         return {
             restrict: 'E',
-            template: '<palette on-item-select="onItemSelect(selectedProperty)" items="itemList"></palette>' +
+            template: '<palette on-item-select="onItemSelect(selectedProperty)" components="itemList"></palette>' +
 
                       '<canvas items="addedItems" selected-item-index="selectedItemIndex"' +
                       ' on-click-item="onDbClickCanvasItem(propertyName, itemIndex, itemValue)"></canvas>' +
 
                       '<inspector element-model="elementModel"></inspector>',
             controller: function ($scope) {
-                $scope.items = {
-                    foo: {
-                        inspectorConfiguration: {
-                            name: {
-                                type: 'inspector-text-field',
-                                label: 'name',
-                                required: true,
-                                index: 2
-                            },
-                            description: {
-                                type: 'inspector-text-field',
-                                label: 'description',
-                                index: 1
-                            }
-                        },
-                        data: {
-                            name: 'foo',
-                            description: 'color is blue'
-                        }
-                    },
-                    bar: {
-                        inspectorConfiguration: {
-                            name: {
-                                type: 'inspector-text-field',
-                                label: 'name',
-                                required: true,
-                                index: 2
-                            },
-                            description: {
-                                type: 'inspector-text-field',
-                                label: 'description',
-                                index: 1
-                            }
-                        },
-                        data: {
-                            name: 'bar',
-                            description: 'color is green'
-                        }
-                    }
-                };
-                $scope.itemList = Object.keys($scope.items);
-
+                $scope.itemList = viewComponentProvider.getRegisteredComponents();
                 $scope.addedItems = [];
 
-                $scope.onItemSelect = function (selectedProperty) {
-                    var tempObj = {propertyName: selectedProperty, value: $scope.items[selectedProperty]};
+                $scope.onItemSelect = function (selectedComponent) {
+                    var tempObj = {propertyName: selectedComponent, value: viewComponentProvider.componentsConfig[selectedComponent]};
 
                     $scope.addedItems.push(tempObj);
                 };
@@ -62,7 +21,9 @@ angular.module('DesignerModule')
             link: function ($scope, $element, attrs) {
                 $scope.onDbClickCanvasItem = function (propertyName, itemIndex, itemValue) {
                     $scope.selectedItemIndex = itemIndex;
-                    $scope.elementModel = itemValue;
+                    $scope.elementModel = Object.keys(itemValue.inspectorConfiguration).map(function (propertyName) {
+                        return {propertyName: propertyName, configuration: itemValue.inspectorConfiguration[propertyName]};
+                    });
                 };
             }
         };

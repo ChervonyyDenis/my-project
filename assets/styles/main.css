@@ -170,7 +170,7 @@ html, body {
 .canvas {
     background-color: #efebeb;
     height: calc(100% - 75px);
-    width: calc(100% - 500px);
+    width: calc(100% - 400px);
     position: absolute;
     box-sizing: border-box;
     padding: 10px;
@@ -206,7 +206,7 @@ html, body {
      top: 75px;
      bottom: 0;
      padding: 10px 15px;
-     width: 400px;
+     width: 300px;
      height: calc(100% - 75px);
      z-index: 1;
      box-shadow: 0 5px 6px 1px #00000063;

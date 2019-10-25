@@ -7,7 +7,7 @@ angular.module('LayoutModule')
             templateUrl: 'app/components/layout/layout.html',
             controller: function ($scope) {
                 $scope.navigationItems = [
-                    {displayValue: 'Dashboard', route: '/', isChosen: false}
+                    {displayValue: '', route: '/', isChosen: false}
                 ];
 
                 $scope.navigationItems
