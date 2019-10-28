@@ -2,7 +2,8 @@
     <ul class="items_list">
         <li ng-repeat="component in components"
             class="item"
-            ng-click="onItemSelect({selectedProperty: component.name})">
-            {{component.name}}</li>
+            ng-click="onAddComponent({componentModel: component})">
+                {{component.name}}
+        </li>
     </ul>
 </div>

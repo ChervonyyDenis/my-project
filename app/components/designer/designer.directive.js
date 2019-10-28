@@ -1,52 +1,63 @@
 angular.module('DesignerModule')
-    .directive('designer', function (viewComponentProvider) {
+    .directive('designer', function ($injector, viewComponent, baseViewComponentManager) {
         return {
             restrict: 'E',
-            template: '<palette on-item-select="onItemSelect(selectedProperty)" components="itemList"></palette>' +
+            templateUrl: 'app/components/designer/designer.html',
 
-                      '<canvas items="addedItems" selected-item-index="selectedItemIndex"' +
-                      ' on-click-item="onDbClickCanvasItem(propertyName, itemIndex, itemValue)"></canvas>' +
-
-                      '<inspector element-model="elementModel"></inspector>',
             controller: function ($scope) {
-                $scope.itemList = viewComponentProvider.getRegisteredComponents();
-                $scope.addedItems = [];
+                $scope.componentDescriptors = viewComponent.getComponentDescriptors();
 
-                $scope.onItemSelect = function (selectedComponent) {
-                    var tempObj = {propertyName: selectedComponent, value: viewComponentProvider.componentsConfig[selectedComponent]};
+                $scope.componentModels = [
+                    {
+                        displayName: 'FOO',
+                        inspectorConfiguration: {
+                            name: {
+                                type: 'inspector-text-field',
+                                label: 'name',
+                                required: true,
+                                index: 2
+                            },
+                            description: {
+                                type: 'inspector-text-field',
+                                label: 'description',
+                                index: 1
+                            }
+                        },
+                        data: {
+                            name: 'foo',
+                            description: 'color is blue'
+                        }
+                    },
+                    {
+                        displayName: 'BAR',
+                        inspectorConfiguration: {
+                            name: {
+                                type: 'inspector-text-field',
+                                label: 'name',
+                                required: true,
+                                index: 2
+                            },
+                            description: {
+                                type: 'inspector-text-field',
+                                label: 'description',
+                                index: 1
+                            }
+                        },
+                        data: {
+                            name: 'bar',
+                            description: 'color is green'
+                        }
+                    }
+                ];
 
-                    $scope.addedItems.push(tempObj);
-                };
-            },
-            link: function ($scope, $element, attrs) {
-                $scope.onDbClickCanvasItem = function (propertyName, itemIndex, itemValue) {
-                    $scope.selectedItemIndex = itemIndex;
-                    $scope.elementModel = Object.keys(itemValue.inspectorConfiguration).map(function (propertyName) {
-                        return {propertyName: propertyName, configuration: itemValue.inspectorConfiguration[propertyName]};
-                    });
+                $scope.canvasComponentModels = [];
+                $scope.selectedComponent = null;
+
+                $scope.onAddComponent = function (componentDescriptor) {
+                    var manager = componentDescriptor.manager ? $injector.get(componentDescriptor.manager) : baseViewComponentManager;
+
+                    $scope.canvasComponentModels.push(manager.getModel({name: componentDescriptor.name}));
                 };
             }
         };
     });
-// $scope.tempArr = [
-//     {
-//         configuration: {
-//             type: 'inspector-text-field',
-//             label: 'name',
-//             required: true,
-//             index: 2
-//         },
-//         propertyName: 'name'
-//     },
-//     {
-//         configuration: {
-//             type: 'inspector-text-field',
-//             label: 'description',
-//             index: 1
-//         },
-//         propertyName: 'description'
-//     }
-// ];
-
-//ViewComponentRegistrationService
-//factory

@@ -3,17 +3,17 @@ angular.module('DesignerModule')
         return {
             restrict: 'E',
             replace: true,
-            scope: {
-                items: '=',
-                onClickItem: '&',
-                selectedItemIndex: '='
-            },
             templateUrl: 'app/components/canvas/canvas.html',
-            controller: function ($scope) {
 
+            scope: {
+                components: '=',
+                selectedComponent: '='
             },
-            link: function ($scope, $element, attrs) {
 
+            controller: function ($scope) {
+                $scope.onSelectElement = function (element) {
+                    $scope.selectedComponent = element;
+                };
             }
         };
     });

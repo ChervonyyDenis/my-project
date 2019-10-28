@@ -3,19 +3,19 @@ angular.module('InspectorModule')
         return {
             restrict: 'E',
             scope: true,
-            link: function ($scope, $element, attrs) {
-                $scope.value = $scope.elementModel.data[$scope.propertyConfig.propertyName];
+            link: function ($scope, $element) {
+                $scope.value = $scope.elementModel.data[$scope.property.propertyName];
 
                 $scope.onValueChange = function (value) {
-                    $scope.updateModelValueByPropertyName($scope.propertyConfig.propertyName, value);
+                    $scope.updateModelValueByPropertyName($scope.property.propertyName, value);
                 };
 
                 $scope.compiledField = $compile(
-                    '<' + $scope.propertyConfig.configuration.type +
-                    ' configuration="inspectorConfig"' +
+                    '<' + $scope.property.propertyConfig.type +
                     ' value="value"' +
+                    'configuration="property.propertyConfig"' +
                     ' on-value-change="onValueChange(value)"' +
-                    '></' + $scope.propertyConfig.configuration.type + '>')($scope);
+                    '></' + $scope.property.propertyConfig.type + '>')($scope);
 
                 $element.append($scope.compiledField);
             }

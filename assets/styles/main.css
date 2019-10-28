@@ -107,13 +107,9 @@ html, body {
 .header {
     height: 75px;
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
     box-sizing: border-box;
-    box-shadow: 0px 0px 8px 1px #00000063;
-    right: 0;
     z-index: 2;
+    border-bottom: 1px solid #9a9898;
 }
 .header .nav {
     display: flex;
@@ -136,17 +132,18 @@ html, body {
 .header .nav .nav_item:hover {
     color: #4848f8;;
 }
+/*designer*/
+designer {
+    display: flex;
+    height: calc(100vh - 75px);
+}
 /*palette */
 .palette {
-    width: 100px;
-    height: calc(100% - 75px);
-    position: absolute;
-    left: 0;
-    box-shadow: 0 5px 6px 1px #00000063;
-    top: 75px;
+    flex: 100px 0 0;
+    height: 100%;
     box-sizing: border-box;
-    bottom: 0;
     z-index: 1;
+    border-right: 1px solid #9a9898;
 }
 .palette .items_list {
     max-height: 100%;
@@ -169,48 +166,41 @@ html, body {
 /*canvas*/
 .canvas {
     background-color: #efebeb;
-    height: calc(100% - 75px);
-    width: calc(100% - 400px);
-    position: absolute;
+    height: 100%;
+    flex: 1 0 0;
     box-sizing: border-box;
     padding: 10px;
-    left: 100px;
-    top: 75px;
-    right: 400px;
-    bottom: 0;
     overflow-y: auto;
+    z-index: 1;
 }
-.canvas div {
+.canvas .canvas_list {
     display: flex;
     flex-wrap: wrap;
 }
-.canvas div .canvas_item {
-    display: block;
-    width: 50px;
-    text-align: center;
-    background-color: #afaeac;
-    margin: 5px;
-    height: 50px;
-    line-height: 50px;
+.canvas .canvas_list .canvas_item {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4e91cc;
+    margin: 10px;
     cursor: pointer;
     user-select: none;
 }
-.canvas .selected_item {
+.canvas .canvas_list div.canvas_item.selected_item {
     border: 1px solid black;
     box-sizing: border-box;
+    background-color: #3b7bb3;
 }
 /*  inspector  */
 .inspector {
-     position: absolute;
-     right: 0;
-     top: 75px;
-     bottom: 0;
-     padding: 10px 15px;
-     width: 300px;
-     height: calc(100% - 75px);
-     z-index: 1;
-     box-shadow: 0 5px 6px 1px #00000063;
-     box-sizing: border-box;
+    padding: 10px 15px;
+    flex: 300px 0 0;
+    height: 100%;
+    z-index: 1;
+    box-sizing: border-box;
+    border-left: 1px solid #9a9898;
  }
 .inspector .inspector_field {
     margin: 20px 0;

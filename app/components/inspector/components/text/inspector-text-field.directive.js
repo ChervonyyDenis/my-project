@@ -14,9 +14,5 @@ angular.module('InspectorModule')
                 value: '=',
                 onValueChange: '&'
             }
-            // controller: function ($scope) {
-            // },
-            // link: function ($scope, $element, attrs) {
-            // }
         };
     });

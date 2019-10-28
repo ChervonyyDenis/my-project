@@ -1,17 +1,13 @@
 angular.module('DesignerModule')
-    .directive('palette', function (viewComponentProvider) {
+    .directive('palette', function () {
         return {
             restrict: 'E',
-            templateUrl: 'app/components/palette/palette.html',
             replace: true,
+            templateUrl: 'app/components/palette/palette.html',
+
             scope: {
                 components: '=',
-                onItemSelect: '&'
+                onAddComponent: '&'
             },
-            controller: function ($scope) {
-                console.log('palette', $scope.components);
-            },
-            link: function ($scope, $element, attrs) {
-            }
         };
     });

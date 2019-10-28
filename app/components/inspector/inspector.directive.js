@@ -13,19 +13,13 @@ angular.module('InspectorModule')
                 };
 
                 $scope.$watch('elementModel', function (newVal) {
-                    if (newVal) {
-                        $scope.inspectorConfiguration = newVal;
-                            // Object.keys(newVal.inspectorConfiguration)
-                            // .map(function (propertyName) {
-                            //     return {
-                            //         propertyName: propertyName,
-                            //         configuration: newVal.inspectorConfiguration[propertyName]
-                            //     };
-                            // });
+                    if (newVal && newVal.inspectorConfiguration) {
+                        $scope.inspectorConfiguration = Object.keys(newVal.inspectorConfiguration)
+                            .map(function (property) {
+                                return {propertyName: property, propertyConfig: newVal.inspectorConfiguration[property]};
+                            });
                     }
                 });
-            },
-            link: function ($scope, $element, $attrs) {
             }
         };
     });
