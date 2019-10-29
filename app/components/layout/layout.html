@@ -1,8 +1,7 @@
 <div class="header">
-    <ul class="nav">
-        <li class="nav_item"
-            ng-repeat="item in navigationItems track by $index"
-            ng-click="onChooseItem(item)"
-            ng-class="{'active_item': item.isChosen}">{{item.displayValue}}</li>
-    </ul>
+    <label>
+        Save as:
+        <input type="text">
+    </label>
+    <button>Save</button>
 </div>

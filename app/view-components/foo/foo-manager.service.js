@@ -20,9 +20,14 @@ angular.module('ViewComponentsModule')
                         type: 'inspector-text-field',
                         label: 'description',
                         index: 1
+                    },
+                    color: {
+                        type: 'inspector-color-field',
+                        label: 'color',
+                        index: 3
                     }
                 };
-                config.data = {};
+                config.data = config.data ? config.data : {};
 
                 return new Foo(config);
             }

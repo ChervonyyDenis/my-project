@@ -7,50 +7,8 @@ angular.module('DesignerModule')
             controller: function ($scope) {
                 $scope.componentDescriptors = viewComponent.getComponentDescriptors();
 
-                $scope.componentModels = [
-                    {
-                        displayName: 'FOO',
-                        inspectorConfiguration: {
-                            name: {
-                                type: 'inspector-text-field',
-                                label: 'name',
-                                required: true,
-                                index: 2
-                            },
-                            description: {
-                                type: 'inspector-text-field',
-                                label: 'description',
-                                index: 1
-                            }
-                        },
-                        data: {
-                            name: 'foo',
-                            description: 'color is blue'
-                        }
-                    },
-                    {
-                        displayName: 'BAR',
-                        inspectorConfiguration: {
-                            name: {
-                                type: 'inspector-text-field',
-                                label: 'name',
-                                required: true,
-                                index: 2
-                            },
-                            description: {
-                                type: 'inspector-text-field',
-                                label: 'description',
-                                index: 1
-                            }
-                        },
-                        data: {
-                            name: 'bar',
-                            description: 'color is green'
-                        }
-                    }
-                ];
-
                 $scope.canvasComponentModels = [];
+
                 $scope.selectedComponent = null;
 
                 $scope.onAddComponent = function (componentDescriptor) {

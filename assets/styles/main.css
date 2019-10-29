@@ -106,31 +106,35 @@ html, body {
 /* Layout */
 .header {
     height: 75px;
+    justify-content: flex-end;
+    display: flex;
     width: 100%;
     box-sizing: border-box;
     z-index: 2;
     border-bottom: 1px solid #9a9898;
-}
-.header .nav {
-    display: flex;
-    justify-content: flex-end;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-}
-.header .nav .nav_item {
-    font-family: monospace, sans-serif;
-    padding: 0 20px;
-    height: 100%;
-    display: flex;
     align-items: center;
-    cursor: pointer;
 }
-.active_item,
-.header .nav .nav_item:hover {
-    color: #4848f8;;
+.header  label {
+    font-size: 20px;
+    font-family: monospace, sans-serif;
+    line-height: 28px;
+}
+.header  label input {
+    padding: 0 10px;
+    font-size: 20px;
+    font-family: monospace, sans-serif;
+    line-height: 28px;
+    outline: none;
+    box-sizing: border-box;
+}
+.header  button {
+    color: #fff;
+    margin: 0 20px;
+    padding: 5px 20px;
+    background-color: #2150e8;
+    border: 0;
+    font-size: 18px;
+    font-family: monospace, sans-serif;
 }
 /*designer*/
 designer {
