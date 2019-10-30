@@ -1,0 +1,7 @@
+<div class="saves_list">
+    <div class="save_item"
+        ng-click="redirectToTemplate(savedTemplates.length + 1)">New template</div>
+    <div class="save_item"
+        ng-repeat="template in savedTemplates"
+        ng-click="redirectToTemplate(template.id)">{{template.name}}</div>
+</div>

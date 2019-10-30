@@ -1,11 +1,14 @@
 angular.module('AppModule', [
     'ngRoute',
     'MySelectModule',
-    'LayoutModule',
+    'HeaderModule',
     'InspectorModule',
     'DesignerModule',
     'ViewComponentsModule',
     'FooModule',
-    'BarModule'
+    'BarModule',
+    'HomeModule',
+    'ServicesModule'
 ]);
+
 // designer/:idJSON

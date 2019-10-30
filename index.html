@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="AppModule">
 <!--http://localhost:63342/my-project/index.html?_ijt=gl4cg2oolfiapbfr4hjs3ar0ch-->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/styles/main.css">
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-route/angular-route.js"></script>
-    <!--  modules  -->
-    <script src="app/app.module.js"></script>
-    <script src="app/components/my-select/my-select.module.js"></script>
-    <script src="app/components/inspector/inspector.module.js"></script>
-    <script src="app/components/layout/layout.module.js"></script>
-    <script src="app/components/designer/designer.module.js"></script>
-    <!--    -->
-    <script src="app/view-components/view-components.module.js"></script>
-    <script src="app/view-components/bar/bar.module.js"></script>
-    <script src="app/view-components/foo/foo.module.js"></script>
-    <!--  services  -->
-    <script src="app/view-components/view-component.service.js"></script>
-    <script src="app/view-components/base-view-component.service.js"></script>
-    <script src="app/view-components/foo/foo-manager.service.js"></script>
-    <!-- js -->
-    <script src="app/root.controller.js"></script>
-    <script src="app/components/layout/layout.directive.js"></script>
-    <script src="app/components/inspector/inspector.directive.js"></script>
-    <script src="app/components/inspector/inspector-field.directive.js"></script>
-    <script src="app/components/inspector/components/text/inspector-text-field.directive.js"></script>
-    <script src="app/components/inspector/components/number/inspector-number-field.directive.js"></script>
-    <script src="app/components/inspector/components/color/inspector-color-field.directive.js"></script>
-    <script src="app/components/my-select/my-select.directive.js"></script>
-    <script src="app/components/designer/designer.directive.js"></script>
-    <script src="app/components/canvas/canvas.directive.js"></script>
-    <script src="app/components/palette/palette.directive.js"></script>
-</head>
-<body>
-    <layout></layout>
-    <designer></designer>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="assets/styles/main.css">
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="node_modules/angular-route/angular-route.js"></script>
+        <!--  modules  -->
+        <script src="app/app.module.js"></script>
+        <script src="app/components/my-select/my-select.module.js"></script>
+        <script src="app/components/inspector/inspector.module.js"></script>
+        <script src="app/components/header/header.module.js"></script>
+        <script src="app/components/designer/designer.module.js"></script>
+        <script src="app/components/home/home.module.js"></script>
+        <script src="app/services/services.module.js"></script>
+        <!--  services  -->
+        <script src="app/view-components/view-components.module.js"></script>
+        <script src="app/view-components/bar/bar.module.js"></script>
+        <script src="app/view-components/foo/foo.module.js"></script>
+        <script src="app/services/local-storage.service.js"></script>
+        <!--  routes config -->
+        <script src="app/app.config.js"></script>
+        <!--  services  -->
+        <script src="app/view-components/view-component.service.js"></script>
+        <script src="app/view-components/base-view-component.service.js"></script>
+        <script src="app/view-components/foo/foo-manager.service.js"></script>
+        <!-- js -->
+        <script src="app/root.controller.js"></script>
+        <script src="app/components/header/header.directive.js"></script>
+        <script src="app/components/inspector/inspector.directive.js"></script>
+        <script src="app/components/inspector/inspector-field.directive.js"></script>
+        <script src="app/components/inspector/components/text/inspector-text-field.directive.js"></script>
+        <script src="app/components/inspector/components/number/inspector-number-field.directive.js"></script>
+        <script src="app/components/inspector/components/color/inspector-color-field.directive.js"></script>
+        <script src="app/components/my-select/my-select.directive.js"></script>
+        <script src="app/components/designer/designer.directive.js"></script>
+        <script src="app/components/canvas/canvas.directive.js"></script>
+        <script src="app/components/palette/palette.directive.js"></script>
+        <script src="app/components/home/saved-views.directive.js"></script>
+    </head>
+    <body>
+        <div data-ng-view>
+        </div>
+    </body>
 </html>

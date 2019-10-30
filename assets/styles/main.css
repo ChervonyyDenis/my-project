@@ -113,6 +113,7 @@ html, body {
     z-index: 2;
     border-bottom: 1px solid #9a9898;
     align-items: center;
+    position: relative;
 }
 .header  label {
     font-size: 20px;
@@ -135,16 +136,46 @@ html, body {
     border: 0;
     font-size: 18px;
     font-family: monospace, sans-serif;
+    cursor: pointer;
+}
+.header button:first-child {
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    transform: translateY(-50%);
+}
+/*saved-views*/
+.saves_list {
+    display: flex;
+    margin: 10px 20px;
+    flex-wrap: wrap;
+}
+.saves_list .save_item {
+    font-size: 22px;
+    font-family: monospace, sans-serif;
+    padding: 10px 10px;
+    cursor: pointer;
+    margin: 20px;
+    border: 1px solid black;
+    background-color: #cff54e;
+}
+.saves_list .save_item:hover {
+    color: #fff;
+    background-color: black;
 }
 /*designer*/
 designer {
     display: flex;
-    height: calc(100vh - 75px);
+    flex-wrap: wrap;
+    height: 100vh;
+}
+designer header {
+    flex: 1 0 0;
 }
 /*palette */
 .palette {
     flex: 100px 0 0;
-    height: 100%;
+    height: calc(100% - 75px);
     box-sizing: border-box;
     z-index: 1;
     border-right: 1px solid #9a9898;
@@ -170,7 +201,7 @@ designer {
 /*canvas*/
 .canvas {
     background-color: #efebeb;
-    height: 100%;
+    height: calc(100% - 75px);
     flex: 1 0 0;
     box-sizing: border-box;
     padding: 10px;
@@ -201,7 +232,7 @@ designer {
 .inspector {
     padding: 10px 15px;
     flex: 300px 0 0;
-    height: 100%;
+    height: calc(100% - 75px);
     z-index: 1;
     box-sizing: border-box;
     border-left: 1px solid #9a9898;

@@ -1,0 +1,8 @@
+<div class="header">
+    <button ng-click="goToSavedTemplates()">Go back</button>
+    <label>
+        Save as:
+        <input type="text" ng-model="saveName">
+    </label>
+    <button ng-click="saveTemplate({saveName: saveName})">Save</button>
+</div>

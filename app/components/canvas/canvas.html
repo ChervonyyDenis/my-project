@@ -4,7 +4,7 @@
              ng-repeat="component in components track by $index"
              ng-class="{'selected_item': selectedComponent === component}"
              ng-dblclick="onSelectElement(component)">
-            {{component.getDisplayName() | uppercase}}
+            {{component.name | uppercase}}
         </div>
     </div>
 </div>
