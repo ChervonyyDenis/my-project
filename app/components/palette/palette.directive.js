@@ -8,6 +8,6 @@ angular.module('DesignerModule')
             scope: {
                 components: '=',
                 onAddComponent: '&'
-            },
+            }
         };
     });

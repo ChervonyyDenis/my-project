@@ -27,7 +27,6 @@ angular.module('ViewComponentsModule')
                         index: 3
                     }
                 };
-                config.data = config.data ? config.data : {};
 
                 return new Foo(config);
             }

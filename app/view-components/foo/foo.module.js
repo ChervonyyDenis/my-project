@@ -1,6 +1,7 @@
 angular.module('FooModule', ['ViewComponentsModule'])
     .constant('FooDescriptor', {
         name: 'Foo',
+        type: 'foo',
         manager: 'fooManager',
         properties: [
             {

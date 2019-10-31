@@ -1,7 +1,7 @@
 angular.module('ViewComponentsModule')
     .factory('baseViewComponentManager', function (viewComponent, BaseViewComponentModel) {
         function createInspector(config) {
-            var componentDescriptor = viewComponent.getComponentDescriptor(config.name).properties;
+            var componentDescriptor = viewComponent.getComponentDescriptor(config.type).properties;
 
             return componentDescriptor.reduce(function (inspectorConfiguration, property, propertyIndex) {
                 inspectorConfiguration[property.name] = {
@@ -20,7 +20,6 @@ angular.module('ViewComponentsModule')
         return {
             getModel: function (config) {
                 config.inspectorConfiguration = createInspector(config);
-                config.data = {};
 
                 return new BaseViewComponentModel(config);
             }

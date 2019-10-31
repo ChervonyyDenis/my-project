@@ -19,9 +19,9 @@ angular.module('ViewComponentsModule')
                         return components;
                     },
 
-                    getComponentDescriptor: function (componentName) {
+                    getComponentDescriptor: function (componentType) {
                         return components.find(function (component) {
-                            return componentName === component.name;
+                            return componentType === component.type;
                         });
                     }
                 };

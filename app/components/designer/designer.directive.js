@@ -9,26 +9,40 @@ angular.module('DesignerModule')
 
                 $scope.selectedComponent = null;
 
-                (function () {
-                    var templateView = localStorage.getSavedTemplate(Number($routeParams.templateId));
+                $scope.canvasComponentModels = [];
 
-                    $scope.canvasComponentModels = templateView ? templateView.template || [] : [];
-                })();
-
-                $scope.onAddComponent = function (componentDescriptor) {
+                $scope.createModels = function (componentDescriptor, data) {
                     var manager = componentDescriptor.manager ? $injector.get(componentDescriptor.manager) : baseViewComponentManager;
 
-                    $scope.canvasComponentModels.push(manager.getModel({name: componentDescriptor.name}));
+                    $scope.canvasComponentModels.push(
+                        manager.getModel({
+                            type: componentDescriptor.type,
+                            name: componentDescriptor.name,
+                            data: data
+                        }));
                 };
 
-                $scope.saveViewTemplateToLocalStorage = function (saveName) {
-                    var saveObj = {
-                        id: localStorage.generateSaveId(),
-                        name: saveName,
-                        template: $scope.canvasComponentModels
-                    };
+                $scope.onAddNewComponent = function (componentDescriptor) {
+                    $scope.createModels(componentDescriptor, {});
+                };
 
-                    localStorage.saveToLocalStorage(saveObj);
+                ($scope.initializeCanvasComponentModels = function () {
+                    localStorage.getSavedDefinition(Number($routeParams.definitionId))
+                        .then(function (definition) {
+                            definition.forEach(function (model) {
+                                $scope.createModels(viewComponent.getComponentDescriptor(model.type), model.data);
+                            });
+                        }, function (reason) {
+                            console.log(reason);
+                        });
+                })();
+
+                $scope.saveDefinitionToLocalStorage = function (saveName) {
+                    var canvasModels = $scope.canvasComponentModels.map(function (model) {
+                        return {type: model.type, data: model.data || {}};
+                    });
+
+                    localStorage.saveToLocalStorage(saveName, canvasModels);
                 };
             }
         };

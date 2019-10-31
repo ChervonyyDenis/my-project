@@ -4,7 +4,7 @@ angular.module('AppModule')
             .when('/', {
                 template: '<saved-views></saved-views>'
             })
-            .when('/designer/:templateId', {
+            .when('/designer/:definitionId', {
                 template: '<designer></designer>'
             })
             .otherwise('/');

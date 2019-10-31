@@ -1,35 +1,53 @@
 angular.module('ServicesModule')
-    .service('localStorage', function () {
-        function saveToLocalStorage(template) {
-            var templates = JSON.parse(localStorage.getItem('saved-templates')) || [];
+    .service('localStorage', function ($q) {
+        function saveToLocalStorage(saveName, canvasModels) {
+            var definitions = JSON.parse(localStorage.getItem('saved-definitions')) || [];
 
-            templates.push(template);
+            var definition = {
+                id: generateSaveId(),
+                name: saveName,
+                template: canvasModels
+            };
 
-            localStorage.setItem('saved-templates', JSON.stringify(templates));
+            definitions.push(definition);
+
+            localStorage.setItem('saved-definitions', JSON.stringify(definitions));
         }
 
         function generateSaveId() {
-            var savedTemplates = JSON.parse(localStorage.getItem('saved-templates'));
+            var definitions = JSON.parse(localStorage.getItem('saved-definitions'));
 
-            return savedTemplates ? savedTemplates.length + 1 || 1 : 1;
+            return definitions ? definitions.length + 1 || 1 : 1;
         }
 
-        function getSavedTemplates() {
-            return JSON.parse(localStorage.getItem('saved-templates')) || [];
+        function getSavedDefinitions() {
+            return $q(function (resolve, reject) {
+                if (localStorage.getItem('saved-definitions')) {
+                    resolve(JSON.parse(localStorage.getItem('saved-definitions')) || []);
+                } else {
+                    reject('Item did`t found');
+                }
+            });
         }
 
-        function getSavedTemplate(templateId) {
-            var savedTemplates = JSON.parse(localStorage.getItem('saved-templates')) || [];
+        function getSavedDefinition(definitionId) {
+            var definitions = JSON.parse(localStorage.getItem('saved-definitions')) || [],
+                view = definitions.find(function (definition) {
+                    return definition.id === definitionId;
+                });
 
-            return (savedTemplates.filter(function (template) {
-                return template.id === templateId;
-            }))[0];
+            return $q(function (resolve, reject) {
+                if (view) {
+                    resolve(view.template || []);
+                } else {
+                    reject('Item did`t found');
+                }
+            });
         }
 
         return {
-            generateSaveId: generateSaveId,
             saveToLocalStorage: saveToLocalStorage,
-            getSavedTemplates: getSavedTemplates,
-            getSavedTemplate: getSavedTemplate
+            getSavedDefinitions: getSavedDefinitions,
+            getSavedDefinition: getSavedDefinition
         };
     });

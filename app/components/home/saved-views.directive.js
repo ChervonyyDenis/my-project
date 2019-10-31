@@ -4,12 +4,16 @@ angular.module('HomeModule')
             restrict: 'E',
             templateUrl: 'app/components/home/saved-views.html',
             scope: {},
-            controllerAs: 'savedViews',
             controller: function ($scope) {
-                $scope.savedTemplates = localStorage.getSavedTemplates();
-
-                $scope.redirectToTemplate = function (templateId) {
-                    $location.path('/designer/' + templateId);
+                $scope.savedDefinitions = [];
+                localStorage.getSavedDefinitions()
+                    .then(function (savedDefinition) {
+                        $scope.savedDefinitions = savedDefinition;
+                    }, function (reason) {
+                        console.log(reason);
+                    });
+                $scope.redirectToDefinition = function (definitionId) {
+                    $location.path('/designer/' + definitionId);
                 };
             }
         };

@@ -1,6 +1,7 @@
 angular.module('BarModule', ['ViewComponentsModule'])
     .constant('BarDescriptor', {
         name: 'Bar',
+        type: 'bar',
         properties: [
             {
                 name: 'name',

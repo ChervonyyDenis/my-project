@@ -4,13 +4,13 @@ angular.module('HeaderModule')
             restrict: 'E',
             replace: true,
             scope: {
-                saveTemplate: '&'
+                saveDefinition: '&'
             },
             templateUrl: 'app/components/header/header.html',
             controller: function ($scope) {
                 $scope.saveName = '';
 
-                $scope.goToSavedTemplates = function () {
+                $scope.goToSavedDefinitions = function () {
                     $location.path('/');
                 };
             },
