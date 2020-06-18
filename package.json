@@ -8,7 +8,7 @@
     "angular-toarrayfilter": "^1.0.3"
   },
   "devDependencies": {
-    "angular": "^1.7.8",
+    "angular": "^1.8.0",
     "angular-mocks": "^1.7.8",
     "angular-ui-router": "^1.0.23",
     "jasmine-core": "^3.5.0",
